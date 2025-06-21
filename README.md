@@ -4,6 +4,8 @@
 - @jrgpl22 (https://github.com/jrgpl22) - Movies, Navbar, Functionalities like Acc, Watchlist etc.
 - @sheeshanna (https://github.com/sheeshanna) - Home,About,Contact Page.
 
+## 🎥 Demo Video
+ - [Watch our 30-minute project walkthrough] (https://nationalueduph-my.sharepoint.com/:v:/g/personal/gopelajm_students_nu-moa_edu_ph/ER8XJSwd--5Gh5gZn8b6AgABFMb_pswIds3-NFNpUcKXQw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=oTnmnF)
 # Pages
  - Home
  - Movies
