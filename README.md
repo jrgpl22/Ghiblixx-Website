@@ -1,2 +1,22 @@
-# Ghiblixx-Website
-Ghiblixx — a fan‑made site by Jerome &amp; Shanna. Our site lets you explore iconic Ghibli films, learn facts, and find the perfect movie to watch. It's a Netflix UI, IMDb, Wiki it's your go-to guide for all things Ghibli  beautifully designed and easy to use.
+# Contributors
+- @jrgpl22 (https://github.com/jrgpl22) - Movies, Navbar, Functionalities like Acc, Watchlist etc.
+- @sheeshanna (https://github.com/sheeshanna) - Home,About,Contact Page.
+
+# Pages
+ - Home
+ - Movies
+ - About
+ - Contact
+ - Watchlist
+  
+# Features
+- Sliders
+- Flip Cards
+- Interactive Hovers
+- Watchlist
+- Filtering movies
+- 3D ID's
+- Account Creation(not customizable yet only for watchlists purpose)
+- Movie cards and descriptions
+- Smooth animations 
+- Search
