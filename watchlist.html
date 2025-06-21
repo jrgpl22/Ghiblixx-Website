@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Watchlist - Ghiblixx</title>
+    <link rel="stylesheet" href="css/movies.css" />
+    <script src="js/shared-navbar.js"></script>
+    <link rel="icon" href="img/new-website-logo.png" />
+    <style>
+      .watchlist-page {
+        min-height: 100vh;
+        background-image: url("img/bg-blue.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding-top: 120px;
+        padding-bottom: 60px;
+      }
+
+      .watchlist-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .watchlist-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        color: white;
+      }
+
+      .watchlist-header h1 {
+        font-size: 2.5em;
+        margin: 0;
+        color: black;
+        font-weight: bold;
+      }
+
+      .watchlist-icon-large {
+        width: 40px;
+        height: 40px;
+        filter: brightness(0);
+      }
+
+      .watchlist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+      }
+
+      .empty-watchlist {
+        text-align: center;
+        color: black;
+        padding: 60px 20px;
+      }
+
+      .empty-watchlist h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+
+      .empty-watchlist p {
+        font-size: 1.1em;
+        opacity: 0.6;
+        max-width: 400px;
+        margin: 0 auto;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <div class="watchlist-page">
+      <div class="watchlist-container">
+        <div class="watchlist-header">
+          <img
+            src="img/watchlist-icon.png"
+            alt="Watchlist"
+            class="watchlist-icon-large"
+          />
+          <h1>Your Watchlist</h1>
+        </div>
+
+        <div id="watchlistContent">
+          <div class="empty-watchlist">
+            <h2>Your watchlist is empty</h2>
+            <p>
+              Start adding your favorite Ghibli movies to keep track of what you
+              want to watch!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/movies.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          loadWatchlistPage();
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

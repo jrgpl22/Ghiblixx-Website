@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Ghiblixx</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/movies.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/new-website-logo.png" />
+    
+    <style>
+  body {
+    font-family: Arial, sans-serif;   
+    background-image: url('img/finally.png');
+    background-size: cover;     
+    background-position: center;  
+    height: 100vh;              
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .auth-form h2 {
+    font-family: Arial, sans-serif !important;
+}
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .moderator-section {
+            margin-bottom: 5rem;
+            margin-top: -2rem; 
+        }
+        .header-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+        }
+        .header-title {
+    color: #0c4a6e;
+      text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.522),
+                0 0 20px rgba(255, 255, 255, 0.2),
+                0 0 30px rgba(255, 255, 255, 0.1),
+                2px 2px 4px rgba(0, 0, 0, 0.5);
+ animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.header-description {
+    color: #0369a1; 
+      text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.716),
+                0 0 30px rgba(255, 255, 255, 0.704),
+                2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+        .id-card-container {
+            position: relative;
+            width: 320px;
+            height: 520px;
+            perspective: 2000px;
+            transform-style: preserve-3d;
+            margin: 0 auto;
+             margin-top: -100px;
+        }
+        
+        .id-card {
+            position: absolute;
+            width: 320px;
+            height: 480px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: grab;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .id-card:active {
+            cursor: grabbing;
+        }
+        
+        .id-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .id-card-front, .id-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .id-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .id-card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+        
+        .lanyard {
+            position: absolute;
+          top: -1100px; 
+           height: 1100px; 
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%);
+            width: 60px;
+          
+            background: linear-gradient(to right, #240a69, #1e0c51, #060f5f);
+            z-index: 1;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .lanyard-text {
+            position: absolute;
+            width: 200px; 
+            height: 50px;
+            transform: rotate(-90deg);
+            color: white;
+            bottom: 90px; 
+            font-weight: bold;
+            font-size: 30px; 
+            text-align: center;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lanyard-clip {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 15px;
+            background: #d1d5db;
+            border-radius: 5px;
+            border: 2px solid #9ca3af;
+            z-index: 1;
+        }
+        
+        .id-card-front-image, .id-card-back-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        .id-scene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .id-display {
+            position: relative;
+            width: 100%;
+              max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            padding: 4rem 3rem;
+           
+        }
+        
+   .id-display::before {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+
+        
+        .id-display-title {
+            position: relative;
+            color: white;
+            text-align: center;
+      margin-top: -30px;
+            z-index: 1;
+                 margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .id-display-subtitle {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 4rem;
+            z-index: 1;
+            font-size: 18px;
+        }
+        
+        .id-cards-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            z-index: 1;
+            flex-wrap: wrap;
+            padding-top: 2rem; 
+        }
+        
+        .contact-section {
+             background: linear-gradient(135deg, #536ee381, #61d8f671);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .contact-form {
+            background: rgb(255, 255, 255);
+                 
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            margin-bottom: 1.75rem;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+            background: rgba(168, 234, 136, 0.459);
+            transform: translateY(-2px);
+        }
+        
+        .contact-form label {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form button {
+            background: linear-gradient(135deg, #4c55f5a2, #6ed2f6b7);
+            color: rgb(4, 4, 4);
+            border: none;
+            border-radius: 16px;
+            padding: 1.25rem 2.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            border-radius: 24px;
+            padding: 3rem;
+            color: rgb(0, 0, 0);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        .custom-paragraph {
+    font-size: 1rem; 
+    line-height: 1.75rem; 
+    color: #0d0d0d; 
+    margin-bottom: 2rem; 
+}
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(4, 73, 234, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-item:hover {
+            background: rgba(102, 241, 128, 0.386);
+            transform: translateY(-2px);
+        }
+        
+        .contact-info-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+        
+        .social-link {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-4px);
+        }
+        
+        .hint-text {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+   .map-section {
+  background: linear-gradient(135deg, #ffffff, #0284c7);
+border-radius: 24px;
+padding: 2rem;
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+}
+        
+             .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            margin-top: 10px; 
+        }
+        
+        
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .ghibli-logo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ghibli-logo svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.4;
+            animation: float 8s ease-in-out infinite;
+            font-size: 1.5rem;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+            75% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        .faq-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 4rem 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.1);
+            border: 2px solid #e0f2fe;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
+            border-color: #0ea5e9;
+        }
+        
+          .auth-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999 !important;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .auth-modal-content {
+            background: linear-gradient(135deg, #7ca454 0%, #5a8240 100%);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+            z-index: 100000 !important;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+            .auth-close {
+                color: white;
+                float: right;
+                font-size: 32px;
+                font-weight: bold;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+            }
+
+            .auth-close:hover {
+                opacity: 0.7;
+            }
+
+            .auth-form h2 {
+                margin: 0 0 20px 0;
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+
+            .auth-form p {
+                margin-bottom: 30px;
+                line-height: 1.5;
+                opacity: 0.9;
+            }
+
+            .auth-form label {
+                display: block;
+                text-align: left;
+                margin-bottom: 8px;
+                font-weight: bold;
+                margin-top: 20px;
+            }
+
+            .auth-form input {
+                width: 100%;
+                padding: 15px;
+                border: none;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                font-size: 16px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                transition: background 0.3s ease;
+            }
+
+            .auth-form input::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .auth-form input:focus {
+                outline: none;
+                background: rgba(255, 255, 255, 0.3);
+            }
+
+            .auth-switch {
+                font-size: 14px;
+                margin: 20px 0;
+            }
+
+            .auth-switch a {
+                color: #b3d9fe;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .auth-switch a:hover {
+                text-decoration: underline;
+            }
+
+            .auth-submit-btn {
+                width: 100%;
+                padding: 15px;
+                background: white;
+                border: none;
+                border-radius: 25px;
+                color: #7ca454;
+                font-weight: bold;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 20px;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .auth-submit-btn:hover {
+                background: #f0f0f0;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .auth-submit-btn .arrow {
+                font-size: 18px;
+                transition: transform 0.3s ease;
+            }
+
+            .auth-submit-btn:hover .arrow {
+                transform: translateX(5px);
+            }
+        @media (max-width: 1024px) {
+            .id-cards-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+            
+            .main-container {
+                padding: 2rem 1rem;
+            }
+            
+            .id-display {
+                padding: 3rem 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form,
+            .contact-info {
+                padding: 2rem;
+            }
+            
+            .id-display {
+                padding: 2rem 1.5rem;
+            }
+            
+            .ghibli-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .header-section {
+                padding: 2rem 0;
+            }
+      
+        }
+    </style>
+</head>
+<body class="ghibli-bg">
+
+       <div id="navbar-container"></div>
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%; animation-delay: 0s;">☁️</div>
+        <div class="floating-element" style="top: 20%; right: 15%; animation-delay: 1s;">🌤️</div>
+        <div class="floating-element" style="top: 60%; left: 5%; animation-delay: 2s;">🕊️</div>
+        <div class="floating-element" style="top: 70%; right: 10%; animation-delay: 3s;">💫</div>
+        <div class="floating-element" style="top: 40%; left: 80%; animation-delay: 4s;">⭐</div>
+        <div class="floating-element" style="top: 80%; left: 70%; animation-delay: 5s;">🌟</div>
+    </div>
+
+    <div class="main-container">
+        <header class="header-section">
+        
+    <h1 class="header-title text-5xl md:text-7xl font-bold mb-6">Studio Ghibli Fan Community</h1>
+    <p class="header-description text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+        Connect with fellow fans of magical worlds and heartwarming stories from the enchanting universe of Studio Ghibli
+    </p>
+</header>
+        </header>
+    
+        <div class="contact-section">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+                <div class="contact-form">
+                    <h2 class="text-4xl font-bold mb-8">Share Your Ghibli Magic With Us</h2>
+                            
+                    <p class="custom-paragraph">
+                Have questions about our community or want to share your Ghibli experiences? 
+                Send us a message and let's create magic together!
+            </p>
+            <form>
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                   <div>
+                       <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-3">First Name</label>
+                       <input type="text" id="firstName" name="firstName" placeholder="Chihiro" required>
+                   </div>
+                   <div>
+                       <label for="lastName" class="block text-sm font-semibold text-gray-700 mb-3">Last Name</label>
+                       <input type="text" id="lastName" name="lastName" placeholder="Ogino" required>
+                   </div>
+               </div>
+
+               <div>
+                   <label for="email" class="block text-sm font-semibold text-gray-700 mb-3">Email Address</label>
+                   <input type="email" id="email" name="email" placeholder="spiritedaway@ghibli.fan" required>
+               </div>
+
+               <div>
+                   <label for="subject" class="block text-sm font-semibold text-gray-700 mb-3">Subject</label>
+                   <input type="text" id="subject" name="subject" placeholder="My Neighbor Totoro Fan Art Submission" required>
+               </div>
+
+               <div>
+                   <label for="message" class="block text-sm font-semibold text-gray-700 mb-3">Your Message</label>
+                   <textarea id="message" name="message" rows="6" placeholder="Share your Ghibli story, ask about events, or tell us about your favorite character..." required></textarea>
+               </div>
+
+               <button type="submit">Send Your Message 🌟</button>
+           </form>
+       </div>
+
+       <div class="space-y-8">
+           <div class="contact-info">
+               <h2 class="text-4xl font-bold mb-8">Connect with Our Community</h2>
+
+               <div class="contact-info-item">
+                   <div class="contact-info-icon">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0 9c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9" />
+                       </svg>
+                   </div>
+                   <div>
+                       <h3 class="font-semibold text-xl mb-2">Global Community Hub</h3>
+                       <p className="text-lg">Connecting Ghibli fans from every corner of the world, creating magical friendships across borders!</p>
+                   </div>
+               </div>
+
+               <div class="contact-info-item">
+                   <div class="contact-info-icon">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                       </svg>
+                   </div>
+                   <div>
+                       <h3 class="font-semibold text-xl mb-2">Email</h3>
+                       <p class="text-lg">ghiblixx@gmail.com</p>
+                   </div>
+               </div>
+
+               <div class="contact-info-item">
+                   <div class="contact-info-icon">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                       </svg>
+                   </div>
+                   <div>
+                       <h3 class="font-semibold text-xl mb-2">Response Time</h3>
+                       <p class="text-lg">We reply within 24 hours</p>
+                       <p class="text-sm opacity-90">Usually much faster! ⚡</p>
+                   </div>
+               </div>
+
+               <div class="contact-info-item">
+                   <div class="contact-info-icon">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                       </svg>
+                   </div>
+                   <div>
+                       <h3 class="font-semibold text-xl mb-2">Community Love</h3>
+                       <p class="text-lg">Spreading Ghibli magic since 2019</p>
+                       <p class="text-sm opacity-90">10,000+ happy fans worldwide</p>
+                   </div>
+               </div>
+
+               <div class="social-links">
+                   <a href="https://www.facebook.com/GhibliUSA" class="social-link" title="Facebook">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                       </svg>
+                   </a>
+                   <a href="https://www.instagram.com/ghibliarchives/" class="social-link" title="Instagram">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                       </svg>
+                   </a>
+                   <a href="https://x.com/ghibliusa" class="social-link" title="Twitter">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                       </svg>
+                   </a>
+                   <a href="https://discord.com/invite/studioghibli" class="social-link" title="Discord">
+                       <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                       </svg>
+                   </a>
+               </div>
+           </div>
+
+           
+           
+       </div>
+   </div>
+   <div class="map-section mt-8 lg:col-span-2"> <h3 class="text-3xl font-bold text-sky-800 mb-4">Visit the Studio Ghibli Museum</h3>
+       <p class="text-white-600 mb-4 leading-relaxed">
+           Located in Mitaka, Tokyo, the Ghibli Museum is a magical place where Miyazaki's imagination comes to life.
+           Plan your pilgrimage to this enchanting destination!
+       </p>
+       <div class="map-container">
+              <iframe
+
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8275765845843!2d139.5660647153169!3d35.697036980193796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ee5571b611dd%3A0xd32ce93f09eb4e88!2sGhibli%20Museum!5e0!3m2!1sen!2sph!4v1651234567890!5m2!1sen!2sph"
+ allowfullscreen=""
+  loading="lazy"
+    style="width: 100%; height: 100%; border: none;">
+</iframe>
+       </div>
+       <div class="mt-4 p-4 bg-sky-50 rounded-lg">
+           <p class="text-sm text-sky-700">
+               <strong>📍 Address:</strong> 1 Chome-1-83 Shimorenjaku, Mitaka, Tokyo 181-0013, Japan<br>
+               <strong>🎫 Note:</strong> Advance reservation required - tickets cannot be purchased at the museum
+           </p>
+       </div>
+   </div>
+        </div>
+        </div>
+        <!-- ID 3D SECTION -->
+<div class="moderator-section">
+    <div class="id-display">
+       <h2 class="id-display-title text-4xl font-bold">Meet Our Community<br> Moderators</h2>
+<p class="id-display-subtitle">Dedicated fans who help keep our <br>magical community thriving. 
+    They ensure a safe and <br> welcoming space for all Ghibli enthusiasts, 
+    fostering <br> positive discussions and sharing the wonder <br>of these timeless films.</p>
+        <div class="id-cards-wrapper">
+            <!-- JEROME'S MODERATOR ID CARD -->
+            <div class="id-card-container" id="jerome-card-container">
+                <div class="id-card" id="jerome-card">
+                    <div class="lanyard" id="jerome-lanyard">
+                        <div class="lanyard-text">NATIONAL UNIVERSITY NATIONAL UNIVERSITY NATIONAL UNIVERSITY NATIONAL UNIVERSITY</div>
+                    </div>
+                    <div class="lanyard-clip"></div>
+
+                    <!-- FRONT OF JEROME'S ID CARD -->
+                    <div class="id-card-front">
+                        <img src="img/jeromef.png" alt="Jerome's Front ID" class="id-card-front-image">
+                    </div>
+
+                    <!-- BACK OF JEROME'S ID CARD -->
+                    <div class="id-card-back">
+                        <img src="img/jeromeb.png" alt="Jerome's Back ID" class="id-card-back-image">
+                    </div>
+                </div>
+                <div id="jerome-scene" class="id-scene"></div>
+            </div>
+
+            <!-- SHANNA'S MODERATOR ID CARD -->
+            <div class="id-card-container" id="shanna-card-container">
+                <div class="id-card" id="shanna-card">
+                    <div class="lanyard" id="shanna-lanyard" style="background: linear-gradient(to right, #130841, #100c5d, #180444);">
+                        <div class="lanyard-text">NATIONAL UNIVERSITY NATIONAL UNIVERSITY NATIONAL UNIVERSITY NATIONAL UNIVERSITY</div>
+                        
+                    </div>
+                    <div class="lanyard-clip"></div>
+
+                    <!-- FRONT OF SHANNA'S ID CARD -->
+                    <div class="id-card-front">
+                        <img src="img/shannaf.png" alt="Shanna's Front ID" class="id-card-front-image">
+                    </div>
+
+                    <!-- BACK OF SHANNA'S ID CARD -->
+                    <div class="id-card-back">
+                        <img src="img/shannab.png" alt="Shanna's Back ID" class="id-card-back-image">
+                    </div>
+                </div>
+                <div id="shanna-scene" class="id-scene"></div>
+            </div>
+        </div>
+
+        <div class="hint-text">Click to flip cards or drag to rotate in 3D space</div>
+    </div>
+</div>
+
+        
+   
+        </div>
+    </div>
+
+    <footer class="bg-sky-900 text-white py-16">
+        <div class="main-container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Studio Ghibli Fan Community</h3>
+                    <p class="text-sky-200 mb-6 leading-relaxed text-lg">Celebrating the magic of Miyazaki since 2019</p>
+                    <p class="text-sky-200 leading-relaxed">Connecting fans worldwide through shared love of amazing storytelling</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-sky-200 hover:text-white transition duration-300 text-lg">Home</a></li>
+                        <li><a href="movies.html" class="text-sky-200 hover:text-white transition duration-300 text-lg">Movies</a></li>
+                        <li><a href="about.html" class="text-sky-200 hover:text-white transition duration-300 text-lg">About</a></li>
+                        <li><a href="contact.html" class="text-sky-200 hover:text-white transition duration-300 text-lg">Contact</a></li>
+
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Community</h3>
+                    <ul class="space-y-4">
+                        <li><a href="https://www.onlineghibli.com/tavern/thread.php?threadid=5774&boardid=4&styleid=1&sid=76d3c18d7d3cbaecbb07bbfbeb6457d2" class="text-sky-200 hover:text-white transition duration-300 text-lg">Discussion Forums</a></li>
+                        <li><a href="https://studioghiblimovies.com/ghiblis-hd-fan-art/" class="text-sky-200 hover:text-white transition duration-300 text-lg">Fan Art Gallery</a></li>
+                        <li><a href="https://editorial.rottentomatoes.com/guide/all-studio-ghibli-movies-ranked-by-tomatometer/" class="text-sky-200 hover:text-white transition duration-300 text-lg">Movie Reviews</a></li>
+                        <li><a href="https://gkids.com/ghiblifest/" class="text-sky-200 hover:text-white transition duration-300 text-lg">Events Calendar</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Stay Connected</h3>
+                    <div class="flex space-x-6 mb-6">
+                        <a href="https://www.facebook.com/GhibliUSA" class="text-sky-200 hover:text-white transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ghibliarchives/" class="text-sky-200 hover:text-white transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </a>
+                        <a href="https://discord.com/invite/studioghibli" class="text-sky-200 hover:text-white transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-sky-200 text-lg">ghiblixx@gmail.com</p>
+                    <p class="text-sky-200 text-lg">Join 10,000+ magical fans!</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-sky-800 text-center text-sky-300">
+                <p class="text-lg">&copy; 2025 Studio Ghibli Fan Community. Made with 💙 by fans, for fans.</p>
+                <p class="mt-3">Not affiliated with Studio Ghibli - Just passionate fans sharing the magic!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jeromeCard = document.getElementById('jerome-card');
+            const shannaCard = document.getElementById('shanna-card');
+            const jeromeLanyard = document.getElementById('jerome-lanyard');
+            const shannaLanyard = document.getElementById('shanna-lanyard');
+            
+            initThreeJS('jerome-scene', jeromeCard, 0x0ea5e9);
+            initThreeJS('shanna-scene', shannaCard, 0x06b6d4);
+            
+            let isDragging = false;
+            let startX, startY, startRotateX, startRotateY;
+            let currentX = 0, currentY = 0;
+            let targetX = 0, targetY = 0;
+            let currentCard = null;
+            let currentLanyard = null;
+            
+            function toggleFlip(card) {
+                card.classList.toggle('flipped');
+            }
+            
+            jeromeCard.addEventListener('click', (e) => {
+                if (!isDragging) {
+                    toggleFlip(jeromeCard);
+                }
+                isDragging = false;
+            });
+            
+            shannaCard.addEventListener('click', (e) => {
+                if (!isDragging) {
+                    toggleFlip(shannaCard);
+                }
+                isDragging = false;
+            });
+            
+            function handleDragStart(e, card, lanyard) {
+                isDragging = true;
+                currentCard = card;
+                currentLanyard = lanyard;
+                
+                const transform = window.getComputedStyle(card).transform;
+                const values = transform.split('(')[1]?.split(')')[0]?.split(',') || [];
+                
+                startRotateX = card._rotateX || 0;
+                startRotateY = card._rotateY || 0;
+                
+                if (e.type === 'touchstart') {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                } else {
+                    startX = e.clientX;
+                    startY = e.clientY;
+                }
+                
+                e.preventDefault();
+            }
+            
+            function handleDragMove(e) {
+                if (!isDragging || !currentCard) return;
+                
+                let moveX, moveY;
+                
+                if (e.type === 'touchmove') {
+                    moveX = e.touches[0].clientX;
+                    moveY = e.touches[0].clientY;
+                } else {
+                    moveX = e.clientX;
+                    moveY = e.clientY;
+                }
+                
+                const deltaX = moveX - startX;
+                const deltaY = moveY - startY;
+                
+                targetY = startRotateX + deltaY * 0.5;
+                targetX = startRotateY - deltaX * 0.5;
+                
+                targetY = Math.max(-30, Math.min(30, targetY));
+                targetX = Math.max(-30, Math.min(30, targetX));
+                
+                currentCard._rotateX = targetX;
+                currentCard._rotateY = targetY;
+                
+                let transform = `rotateX(${targetX}deg) rotateY(${targetY}deg)`;
+                
+                if (currentCard.classList.contains('flipped')) {
+                    transform += ' rotateY(180deg)';
+                }
+                
+                currentCard.style.transform = transform;
+                
+                if (currentLanyard) {
+                    currentLanyard.style.transform = `translateX(-50%) rotateX(${targetX * 0.7}deg) rotateY(${targetY * 0.7}deg) rotateZ(${targetY * 0.2}deg)`;
+                }
+                
+                e.preventDefault();
+            }
+            
+            function handleDragEnd() {
+                isDragging = false;
+                currentCard = null;
+                currentLanyard = null;
+            }
+            
+            jeromeCard.addEventListener('mousedown', (e) => handleDragStart(e, jeromeCard, jeromeLanyard));
+            jeromeCard.addEventListener('touchstart', (e) => handleDragStart(e, jeromeCard, jeromeLanyard));
+            
+            shannaCard.addEventListener('mousedown', (e) => handleDragStart(e, shannaCard, shannaLanyard));
+            shannaCard.addEventListener('touchstart', (e) => handleDragStart(e, shannaCard, shannaLanyard));
+            
+            document.addEventListener('mousemove', handleDragMove);
+            document.addEventListener('touchmove', handleDragMove, { passive: false });
+            document.addEventListener('mouseup', handleDragEnd);
+            document.addEventListener('touchend', handleDragEnd);
+            
+            function autoRotateCards() {
+                const cards = [jeromeCard, shannaCard];
+                const lanyards = [jeromeLanyard, shannaLanyard];
+                
+                let angle = 0;
+                
+                setInterval(() => {
+                    angle += 0.01;
+                    
+                    const rotateX = Math.sin(angle) * 5;
+                    const rotateY = Math.cos(angle) * 5;
+                    
+                    cards.forEach((card, index) => {
+                        if (card !== currentCard) {
+                            card._rotateX = rotateX;
+                            card._rotateY = rotateY;
+                            
+                            let transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                            
+                            if (card.classList.contains('flipped')) {
+                                transform += ' rotateY(180deg)';
+                            }
+                            
+                            card.style.transform = transform;
+                            
+                            lanyards[index].style.transform = `translateX(-50%) rotateX(${rotateX * 0.7}deg) rotateY(${rotateY * 0.7}deg) rotateZ(${rotateY * 0.2}deg)`;
+                        }
+                    });
+                }, 50);
+            }
+            
+            autoRotateCards();
+            
+            function initThreeJS(elementId, cardElement, color) {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, 320/480, 0.1, 1000);
+                camera.position.z = 5;
+                
+                const renderer = new THREE.WebGLRenderer({ 
+                    alpha: true,
+                    antialias: true
+                });
+                renderer.setSize(320, 480);
+                renderer.setClearColor(0x000000, 0);
+                
+                const container = document.getElementById(elementId);
+                container.appendChild(renderer.domElement);
+                
+                const geometry = new THREE.BoxGeometry(4, 6, 0.1);
+                const material = new THREE.MeshBasicMaterial({ 
+                    color: color,
+                    transparent: true,
+                    opacity: 0,
+                    side: THREE.DoubleSide
+                });
+                
+                const card = new THREE.Mesh(geometry, material);
+                scene.add(card);
+                
+                const lanyardGeometry = new THREE.BoxGeometry(0.3, 2, 0.05);
+                const lanyardMaterial = new THREE.MeshBasicMaterial({ 
+                    color: color,
+                    transparent: true,
+                    opacity: 0
+                });
+                const lanyard = new THREE.Mesh(lanyardGeometry, lanyardMaterial);
+                lanyard.position.y = 4;
+                scene.add(lanyard);
+
+                
+                
+                const particlesGeometry = new THREE.BufferGeometry();
+                const particlesCount = 100;
+                const posArray = new Float32Array(particlesCount * 3);
+                
+                for(let i = 0; i < particlesCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 5;
+                }
+                
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+                
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0,
+                    color: color,
+                    transparent: true,
+                    opacity: 0
+                });
+                
+                const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                scene.add(particlesMesh);
+                
+                function animate() {
+                    requestAnimationFrame(animate);
+                    
+                    const rotateX = cardElement._rotateX || 0;
+                    const rotateY = cardElement._rotateY || 0;
+                    
+                    card.rotation.x = rotateX * Math.PI / 180;
+                    card.rotation.y = rotateY * Math.PI / 180;
+                    
+                    lanyard.rotation.x = rotateX * Math.PI / 180 * 0.7;
+                    lanyard.rotation.y = rotateY * Math.PI / 180 * 0.7;
+                    lanyard.rotation.z = rotateY * Math.PI / 180 * 0.2;
+                    
+                    particlesMesh.rotation.x += 0.0005;
+                    particlesMesh.rotation.y += 0.0005;
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            }
+            
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const firstName = document.getElementById('firstName').value;
+                    const lastName = document.getElementById('lastName').value;
+                    
+                    const formContent = contactForm.innerHTML;
+                    contactForm.innerHTML = `
+                        <div class="text-center py-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-sky-500 mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h3 class="text-3xl font-bold text-sky-600 mb-4">Message Sent! ✨</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed text-lg">Thank you ${firstName} ${lastName} for reaching out to our Ghibli community! We'll respond with some magic soon.</p>
+                            <button type="button" class="bg-sky-500 text-white px-8 py-4 rounded-lg hover:bg-sky-600 transition duration-300 text-lg font-semibold" id="resetForm">Send Another Message 🌟</button>
+                        </div>
+                    `;
+                    
+                    document.getElementById('resetForm').addEventListener('click', function() {
+                        contactForm.innerHTML = formContent;
+                    });
+                });
+            }
+            
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.8}s`;
+            });
+        });
+
+
+    </script>
+    <script>
+  
+</script>
+ <script src="js/shared-navbar.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+</html>
+</body>
+</html>

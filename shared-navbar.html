@@ -1,0 +1,92 @@
+<a href="index.html" class="navbar-logo">
+  <img src="img/ghiblixx.png" alt="Studio Ghibli" />
+</a>
+
+<nav class="navbar">
+  <a href="index.html" id="nav-home">HOME</a>
+  <a href="movies.html" id="nav-movies">MOVIES</a>
+  <a href="about.html" id="nav-about">ABOUT</a>
+  <a href="contact.html" id="nav-contact">CONTACT</a>
+
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-bar"
+      id="searchBar"
+      placeholder="Search movies..."
+    />
+    <img
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E"
+      alt="Search"
+      class="search-icon"
+      id="searchIcon"
+    />
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <a href="watchlist.html" class="watchlist-btn" id="watchlistBtn">
+    <img src="img/watchlist-icon.png" alt="Watchlist" class="watchlist-icon" />
+    WATCHLIST
+    <span class="watchlist-count" id="watchlistCount"></span>
+  </a>
+
+  <div class="profile-section">
+    <button class="profile-btn" onclick="toggleDropdown()">
+      <img src="img/defaultpfp.jpg" alt="Profile" class="profile-img" />
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown">
+      <a href="#" class="dropdown-item" id="authAction">SIGN UP</a>
+    </div>
+  </div>
+</nav>
+
+<div id="authModal" class="auth-modal">
+  <div class="auth-modal-content">
+    <span class="auth-close">&times;</span>
+
+    <div id="signupForm" class="auth-form">
+      <h2>Sign Up</h2>
+      <p>
+        Welcome to the World of Ghibli!<br />Sign up to explore magic, wonder,
+        and unforgettable adventures.
+      </p>
+
+      <label for="signupUsername">Username</label>
+      <input type="text" id="signupUsername" name="username" required />
+
+      <label for="signupPassword">Password</label>
+      <input type="password" id="signupPassword" name="password" required />
+
+      <p class="auth-switch">
+        Already have an account? <a href="#" id="showLogin">Log in here!</a>
+      </p>
+
+      <button type="submit" id="signupBtn" class="auth-submit-btn">
+        SIGN UP <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <div id="loginForm" class="auth-form" style="display: none">
+      <h2>Log In</h2>
+      <p>
+        Welcome to the World of Ghibli!<br />Log in to explore magic, wonder,
+        and unforgettable adventures.
+      </p>
+
+      <label for="loginUsername">Username</label>
+      <input type="text" id="loginUsername" name="username" required />
+
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" name="password" required />
+
+      <p class="auth-switch">
+        Don't have an account? <a href="#" id="showSignup">Sign up here!</a>
+      </p>
+
+      <button type="submit" id="loginBtn" class="auth-submit-btn">
+        LOG IN <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</div>

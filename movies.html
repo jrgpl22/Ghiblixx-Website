@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies - Ghiblixx</title>
+    <link rel="stylesheet" href="css/movies.css" />
+    <link rel="icon" href="img/new-website-logo.png" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <div class="hero" id="movies">
+      <div class="hero-slider">
+        <div class="hero-slides-container" id="heroSlidesContainer">
+          <div
+            class="hero-slide"
+            style="background-image: url('img/howlsfeatured.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('img/spirited-away-bg.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('img/totoro-bg.png')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('img/princess-mononoke-bg.png')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('img/kikis-bg.jpg')"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hero-title-overlay active" data-slide="0">
+        <img
+          src="img/howls-font.png"
+          alt="Howl's Moving Castle"
+          style="max-height: 450px; width: 470px; padding-bottom: 60px"
+        />
+      </div>
+      <div class="hero-title-overlay" data-slide="1">
+        <img
+          src="img/spirited-away-font.png"
+          alt="Spirited Away"
+          style="max-height: 200px; width: 550px; padding-bottom: 60px"
+        />
+      </div>
+      <div class="hero-title-overlay" data-slide="2">
+        <img
+          src="img/totoro-font.png"
+          alt="My Neighbor Totoro"
+          style="max-height: 280px; width: 310px; padding-bottom: 70px"
+        />
+      </div>
+      <div class="hero-title-overlay" data-slide="3">
+        <img
+          src="img/mononoke-font.png"
+          alt="Princess Mononoke"
+          style="max-height: 400px; width: 450px; padding-bottom: 60px"
+        />
+      </div>
+      <div class="hero-title-overlay" data-slide="4">
+        <img
+          src="img/kikis-font.png"
+          alt="Kiki's Delivery Service"
+          style="max-height: 400px; width: 450px; padding-bottom: 60px"
+        />
+      </div>
+      <div class="slider-movie-info active howls-black-slider" data-slide="0">
+        <img src="img/imdb-logo.png" alt="IMDb Logo" class="slider-imdb-logo" />
+        <div class="slider-rating-votes-container">
+          <span class="slider-rating-text">
+            <span>8.2</span><span>/10</span>
+          </span>
+          <div class="slider-user-votes">(484k votes)</div>
+        </div>
+        <div class="slider-category">
+          <span></span>
+          <span class="category-separator">|</span>
+          <span>ㅤ2004 · Fantasy / Adventure / Romance</span>
+        </div>
+      </div>
+
+      <!-- Spirited Away -->
+      <div class="slider-movie-info" data-slide="1">
+        <img src="img/imdb-logo.png" alt="IMDb Logo" class="slider-imdb-logo" />
+        <div class="slider-rating-votes-container">
+          <span class="slider-rating-text">
+            <span>8.6</span><span>/10</span>
+          </span>
+          <div class="slider-user-votes">(912k votes)</div>
+        </div>
+        <div class="slider-category">
+          <span></span>
+          <span class="category-separator">|</span>
+          <span>ㅤ2001 · Fantasy / Adventure</span>
+        </div>
+      </div>
+
+      <!-- My Neighbor Totoro -->
+      <div class="slider-movie-info" data-slide="2">
+        <img src="img/imdb-logo.png" alt="IMDb Logo" class="slider-imdb-logo" />
+        <div class="slider-rating-votes-container">
+          <span class="slider-rating-text">
+            <span>8.1</span><span>/10</span>
+          </span>
+          <div class="slider-user-votes">(408k votes)</div>
+        </div>
+        <div class="slider-category">
+          <span></span>
+          <span class="category-separator">|</span>
+          <span>ㅤ1988 · Fantasy / Comedy / Family</span>
+        </div>
+      </div>
+
+      <!-- Princess Mononoke -->
+      <div class="slider-movie-info" data-slide="3">
+        <img src="img/imdb-logo.png" alt="IMDb Logo" class="slider-imdb-logo" />
+        <div class="slider-rating-votes-container">
+          <span class="slider-rating-text">
+            <span>8.3</span><span>/10</span>
+          </span>
+          <div class="slider-user-votes">(461k votes)</div>
+        </div>
+        <div class="slider-category">
+          <span></span>
+          <span class="category-separator">|</span>
+          <span>ㅤ1997 · Fantasy / Adventure / Action</span>
+        </div>
+      </div>
+
+      <!--  Kiki's Delivery Service -->
+      <div class="slider-movie-info" data-slide="4">
+        <img src="img/imdb-logo.png" alt="IMDb Logo" class="slider-imdb-logo" />
+        <div class="slider-rating-votes-container">
+          <span class="slider-rating-text">
+            <span>7.8</span><span>/10</span>
+          </span>
+          <div class="slider-user-votes">(178k votes)</div>
+        </div>
+        <div class="slider-category">
+          <span></span>
+          <span class="category-separator">|</span>
+          <span>ㅤ1989 · Fantasy / Family</span>
+        </div>
+      </div>
+
+      <!-- Descriptionsess-->
+      <div class="slider-description active howls-black-slider" data-slide="0">
+        <p>
+          When an unconfident young woman is cursed with an old body by a
+          spiteful witch, her only chance of breaking the spell lies with a
+          self-indulgent yet insecure young wizard and his companions in his
+          legged, walking castle.
+        </p>
+      </div>
+
+      <div class="slider-description" data-slide="1">
+        <p>
+          A young girl, Chihiro, enters a magical world ruled by gods, witches,
+          and spirits, and where humans are changed into beasts. She must work
+          in a bathhouse to free herself and her parents.
+        </p>
+      </div>
+
+      <div class="slider-description" data-slide="2">
+        <p>
+          When two girls move to the country to be near their ailing mother,
+          they have adventures with the wondrous forest spirits who live nearby.
+          Their days soon fill with wonder as they explore a hidden world of
+          enchantment and friendship.
+        </p>
+      </div>
+
+      <div class="slider-description" data-slide="3">
+        <p>
+          While seeking to cure himself of a curse, young warrior Ashitaka
+          stumbles into a conflict between the people of Iron Town and Princess
+          Mononoke, a girl raised by wolves, who will stop at nothing to prevent
+          the destruction of her home.
+        </p>
+      </div>
+
+      <div class="slider-description" data-slide="4">
+        <p>
+          Along with her black cat Jiji, Kiki settles in a seaside town and
+          starts a high-flying delivery service. Here begins her magical
+          encounter with independence and responsibility, making lifelong
+          friends and finding her place in the world.
+        </p>
+      </div>
+
+      <!-- Buttons-->
+      <div class="slider-buttons active howls-black-slider" data-slide="0">
+        <button
+          class="slider-trailer-button"
+          data-trailer="https://www.youtube.com/watch?v=iwROgK94zcM"
+        >
+          <span class="slider-play-icon-circle">▶</span>
+          TRAILER
+        </button>
+        <button
+          class="slider-watchlist-button"
+          data-movie="Howls Moving Castle"
+        >
+          <i class="fas fa-plus"></i> + WATCH LIST
+        </button>
+      </div>
+
+      <div class="slider-buttons" data-slide="1">
+        <button
+          class="slider-trailer-button"
+          data-trailer="https://www.youtube.com/watch?v=ByXuk9QqQkk"
+        >
+          <span class="slider-play-icon-circle">▶</span>
+          TRAILER
+        </button>
+        <button class="slider-watchlist-button" data-movie="Spirited Away">
+          <i class="fas fa-plus"></i> + WATCH LIST
+        </button>
+      </div>
+
+      <div class="slider-buttons" data-slide="2">
+        <button
+          class="slider-trailer-button"
+          data-trailer="https://www.youtube.com/watch?v=92a7Hj0ijLs"
+        >
+          <span class="slider-play-icon-circle">▶</span>
+          TRAILER
+        </button>
+        <button class="slider-watchlist-button" data-movie="My Neighbor Totoro">
+          <i class="fas fa-plus"></i> + WATCH LIST
+        </button>
+      </div>
+
+      <div class="slider-buttons" data-slide="3">
+        <button
+          class="slider-trailer-button"
+          data-trailer="https://www.youtube.com/watch?v=4OiMOHRDs14"
+        >
+          <span class="slider-play-icon-circle">▶</span>
+          TRAILER
+        </button>
+        <button class="slider-watchlist-button" data-movie="Princess Mononoke">
+          <i class="fas fa-plus"></i> + WATCH LIST
+        </button>
+      </div>
+
+      <div class="slider-buttons" data-slide="4">
+        <button
+          class="slider-trailer-button"
+          data-trailer="https://www.youtube.com/watch?v=4bG17OYs-GA"
+        >
+          <span class="slider-play-icon-circle">▶</span>
+          TRAILER
+        </button>
+        <button
+          class="slider-watchlist-button"
+          data-movie="Kikis Delivery Service"
+        >
+          <i class="fas fa-plus"></i> + WATCH LIST
+        </button>
+      </div>
+      <button class="hero-nav prev" onclick="previousSlide()">
+        <svg viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </button>
+
+      <button class="hero-nav next" onclick="nextSlide()">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+      </button>
+
+      <div class="hero-dots">
+        <div class="hero-dot active" onclick="currentSlide(1)"></div>
+        <div class="hero-dot" onclick="currentSlide(2)"></div>
+        <div class="hero-dot" onclick="currentSlide(3)"></div>
+        <div class="hero-dot" onclick="currentSlide(4)"></div>
+        <div class="hero-dot" onclick="currentSlide(5)"></div>
+      </div>
+
+      <div class="hero-gradient"></div>
+    </div>
+
+    <div class="section" id="about">
+      <hr class="divider" />
+
+      <div class="movie-categories">
+        <span class="category active">ALL</span>
+        <span class="category">POPULAR</span>
+        <span class="category">TRENDING-NOW</span>
+        <span class="category">AWARD-WINNING</span>
+        <div class="filter-container">
+          <button class="filter-button">
+            FILTER <span class="arrow">▼</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="movie-posters">
+        <div class="movie-card" data-category="POPULAR">
+          <img src="img/spirited-away.jpg" alt="Spirited Away" />
+          <div class="play-button"><div class="play-icon"></div></div>
+        </div>
+
+        <div class="movie-card" data-category="ALL">
+          <img src="img/my-neighbor-totoro.jpg" alt="My Neighbor Totoro" />
+          <div class="play-button"><div class="play-icon"></div></div>
+        </div>
+
+        <div class="movie-card" data-category="ALL">
+          <img src="img/princess-mononoke.jpg" alt="Princess Mononoke" />
+          <div class="play-button"><div class="play-icon"></div></div>
+        </div>
+
+        <div class="movie-card" data-category="ALL">
+          <img src="img/howls-moving-castle.jpg" alt="Howl's Moving Castle" />
+          <div class="play-button"><div class="play-icon"></div></div>
+        </div>
+
+        <div class="movie-card" data-category="ALL">
+          <img
+            src="img/kikis-delivery-service.jpg"
+            alt="Kiki's Delivery Service"
+          />
+          <div class="play-button"><div class="play-icon"></div></div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="movie-card">
+          <img src="img/princess-kaguya.jpg" alt="Spirited Away" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/nausica.jpg" alt="My Neighbor Totoro" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/laputa.jpg" alt="Princess Mononoke" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/ponyo.jpg" alt="Howl's Moving Castle" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/wind-rises.jpg" alt="Kiki's Delivery Service" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="movie-card">
+          <img src="img/grave-of-fireflies.jpg" alt="Spirited Away" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/only-yesterday.jpg" alt="My Neighbor Totoro" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/porco-rosso.jpg" alt="Princess Mononoke" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/ocean-waves.jpg" alt="Howl's Moving Castle" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/pom-poko.jpg" alt="Kiki's Delivery Service" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <!-- ROW 4 -->
+        <div class="movie-card">
+          <img src="img/whisper-of-the-heart.jpg" alt="Spirited Away" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/my-neighbors.jpg" alt="My Neighbor Totoro" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/the-cat-returns.jpg" alt="Princess Mononoke" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/arrietyy.jpg" alt="Howl's Moving Castle" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img src="img/earthsea.jpg" alt="Kiki's Delivery Service" />
+          <div class="play-button">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+
+        <!-- ROW 5 -->
+        <div class="movie-posters row-5">
+          <div class="movie-card">
+            <img src="img/poppy-hill.jpg" alt="Spirited Away" />
+            <div class="play-button">
+              <div class="play-icon"></div>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img src="img/when-marnie-was-there.jpg" alt="My Neighbor Totoro" />
+            <div class="play-button">
+              <div class="play-icon"></div>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img src="img/earwig.jpg" alt="Princess Mononoke" />
+            <div class="play-button">
+              <div class="play-icon"></div>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img src="img/the-boy-heron.jpg" alt="Howl's Moving Castle" />
+            <div class="play-button">
+              <div class="play-icon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtering HERE -->
+    <div class="filter-overlay" id="filterOverlay">
+      <div class="filter-panel">
+        <button class="filter-close" id="filterClose">&times;</button>
+
+        <div class="filter-section">
+          <h3>Sort by</h3>
+          <select class="filter-dropdown" id="sortBy">
+            <option value="recommended">All</option>
+            <option value="top-rated">Top Rated</option>
+            <option value="newest-first">Newest First</option>
+            <option value="oldest-first">Oldest First</option>
+            <option value="a-z">A–Z (Title)</option>
+            <option value="z-a">Z–A (Title)</option>
+            <option value="most-reviewed">Most Reviewed / Most Rated</option>
+          </select>
+        </div>
+
+        <div class="filter-section">
+          <h3>Year</h3>
+          <div class="filter-checkboxes" id="yearFilters">
+            <div class="checkbox-item">
+              <input type="checkbox" id="1980s" value="1980s" />
+              <label for="1980s">1980s</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="1990s" value="1990s" />
+              <label for="1990s">1990s</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="2000s" value="2000s" />
+              <label for="2000s">2000s</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="2010s" value="2010s" />
+              <label for="2010s">2010s</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="2020s" value="2020s" />
+              <label for="2020s">2020s</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3>Genres</h3>
+          <div class="filter-checkboxes" id="genreFilters">
+            <div class="checkbox-item">
+              <input type="checkbox" id="fantasy" value="Fantasy" />
+              <label for="fantasy">Fantasy</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="adventure" value="Adventure" />
+              <label for="adventure">Adventure</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="drama" value="Drama" />
+              <label for="drama">Drama</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="romance" value="Romance" />
+              <label for="romance">Romance</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="comedy" value="Comedy" />
+              <label for="comedy">Comedy</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="family" value="Family" />
+              <label for="family">Family</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="war" value="War" />
+              <label for="war">War</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="action" value="Action" />
+              <label for="action">Action</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3>Rating</h3>
+          <div class="rating-container">
+            <input
+              type="number"
+              class="rating-input"
+              id="minRating"
+              min="1"
+              max="10"
+              step="0.1"
+              placeholder="1.0"
+            />
+            <span class="rating-separator">to</span>
+            <input
+              type="number"
+              class="rating-input"
+              id="maxRating"
+              min="1"
+              max="10"
+              step="0.1"
+              placeholder="10.0"
+            />
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3>Creators</h3>
+          <div class="filter-checkboxes" id="creatorFilters">
+            <div class="checkbox-item">
+              <input type="checkbox" id="hayao" value="Hayao Miyazaki" />
+              <label for="hayao">Hayao Miyazaki</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="isao" value="Isao Takahata" />
+              <label for="isao">Isao Takahata</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="goro" value="Gorō Miyazaki" />
+              <label for="goro">Gorō Miyazaki</label>
+            </div>
+            <div class="checkbox-item">
+              <input
+                type="checkbox"
+                id="hiromasa"
+                value="Hiromasa Yonebayashi"
+              />
+              <label for="hiromasa">Hiromasa Yonebayashi</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="tomomi" value="Tomomi Mochizuki" />
+              <label for="tomomi">Tomomi Mochizuki</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="yoshifumi" value="Yoshifumi Kondō" />
+              <label for="yoshifumi">Yoshifumi Kondō</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="hiroyuki" value="Hiroyuki Morita" />
+              <label for="hiroyuki">Hiroyuki Morita</label>
+            </div>
+          </div>
+        </div>
+
+        <button class="enter-button" id="applyFilters">Enter</button>
+      </div>
+    </div>
+
+    <!-- Login/Signup -->
+    <div id="authModal" class="auth-modal">
+      <div class="auth-modal-content">
+        <span class="auth-close">&times;</span>
+
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="auth-form">
+          <h2>Sign Up</h2>
+          <p>
+            Welcome to the World of Ghibli!<br />Sign up to explore magic,
+            wonder, and unforgettable adventures.
+          </p>
+
+          <label for="signupUsername">Username</label>
+          <input type="text" id="signupUsername" name="username" required />
+
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" name="password" required />
+
+          <p class="auth-switch">
+            Already have an account? <a href="#" id="showLogin">Log in here!</a>
+          </p>
+
+          <button type="submit" id="signupBtn" class="auth-submit-btn">
+            SIGN UP <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="auth-form" style="display: none">
+          <h2>Log In</h2>
+          <p>
+            Welcome to the World of Ghibli!<br />Log in to explore magic,
+            wonder, and unforgettable adventures.
+          </p>
+
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" name="username" required />
+
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" required />
+
+          <p class="auth-switch">
+            Don't have an account? <a href="#" id="showSignup">Sign up here!</a>
+          </p>
+
+          <button type="submit" id="loginBtn" class="auth-submit-btn">
+            LOG IN <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/shared-navbar.js"></script>
+    <script src="js/movies.js"></script>
+  </body>
+</html>
